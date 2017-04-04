@@ -18,8 +18,13 @@ object Pattern {
     override def toString: String = value.toString
   }
 
+  case class Explanation(value: String) extends AnyVal {
+    override def toString: String = value
+  }
+
   case class Description(patternId: Pattern.Id, title: Pattern.Title, description: Option[Pattern.DescriptionText],
-                         timeToFix: Option[Pattern.TimeToFix], parameters: Option[Set[Parameter.Description]])
+                         timeToFix: Option[Pattern.TimeToFix], parameters: Option[Set[Parameter.Description]],
+                         explanation: Option[Pattern.Explanation])
 
   case class Definition(patternId: Pattern.Id, parameters: Option[Set[Parameter.Definition]])
 
@@ -33,7 +38,5 @@ object Pattern {
     //Deprecated
     Complexity, BestPractice, Comprehensibility, Duplication, Documentation = Value
   }
-
-  case class Language(name: String)
 
 }
